@@ -1,8 +1,11 @@
-﻿@using Microsoft.AspNetCore.Components.WebAssembly.Services
+﻿@using System.Reflection
+@using Microsoft.AspNetCore.Components.WebAssembly.Services
 
+@inject ILogger<App> Logger
 @inject LazyAssemblyLoader AssemblyLoader
 
 <Router AppAssembly="@typeof(App).Assembly"
+        OnNavigateAsync="@OnNavigateAsync">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
         <FocusOnNavigate RouteData="@routeData" Selector="h1" />
@@ -13,3 +16,26 @@
         </LayoutView>
     </NotFound>
 </Router>
+
+@code {
+    private List<Assembly> lazyLoadedAssemblies = new();
+
+    private async Task OnNavigateAsync(NavigationContext args)
+    {
+        try
+        {
+            if (args.Path == "fetchdata")
+            {
+                var assemblies = await this.AssemblyLoader.LoadAssembliesAsync(new[]
+                {
+                    "LazyRazorProject.dll"
+                });
+                this.lazyLoadedAssemblies.AddRange(assemblies);
+            }
+        }
+        catch (Exception ex)
+        {
+            this.Logger.LogError("Error: {Message}", ex.Message);
+        }
+    }
+}
