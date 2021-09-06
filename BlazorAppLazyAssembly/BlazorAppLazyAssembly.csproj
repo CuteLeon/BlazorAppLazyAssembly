@@ -10,4 +10,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.0-preview.7.21378.6" PrivateAssets="all" />
   </ItemGroup>
 
+    <ItemGroup>
+        <BlazorWebAssemblyLazyLoad Include="LazyRazorProject.dll" />
+    </ItemGroup>
 </Project>
