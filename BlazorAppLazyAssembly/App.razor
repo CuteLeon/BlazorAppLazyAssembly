@@ -1,8 +1,10 @@
 ﻿@using System.Reflection
+@using BlazorAppLazyAssembly.Services
 @using Microsoft.AspNetCore.Components.WebAssembly.Services
 
 @inject ILogger<App> Logger
 @inject LazyAssemblyLoader AssemblyLoader
+@inject MyLazyAssemblyLoader MyAssemblyLoader
 
 <Router AppAssembly="@typeof(App).Assembly"
         OnNavigateAsync="@OnNavigateAsync">
@@ -18,20 +20,14 @@
 </Router>
 
 @code {
-    private List<Assembly> lazyLoadedAssemblies = new();
-
     private async Task OnNavigateAsync(NavigationContext args)
     {
         try
         {
             if (args.Path == "fetchdata")
             {
-                var assemblies = await this.AssemblyLoader.LoadAssembliesAsync(new[]
-                {
-                    "LazyRazorProject.dll",
-                    "LazyRazorProject2.dll"
-                });
-                this.lazyLoadedAssemblies.AddRange(assemblies);
+                _ = await this.AssemblyLoader.LoadAssembliesAsync(new[] { "LazyRazorProject.dll" });
+                _ = await this.MyAssemblyLoader.LoadAssembliesAsync(new[] { "LazyRazorProject2.dll" });
             }
         }
         catch (Exception ex)
