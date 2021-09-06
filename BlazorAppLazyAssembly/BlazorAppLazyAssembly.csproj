@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -12,9 +12,11 @@
 
     <ItemGroup>
         <BlazorWebAssemblyLazyLoad Include="LazyRazorProject.dll" />
+        <BlazorWebAssemblyLazyLoad Include="LazyRazorProject2.dll" />
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\LazyRazorProject2\LazyRazorProject2.csproj" />
       <ProjectReference Include="..\LazyRazorProject\LazyRazorProject.csproj" />
     </ItemGroup>
 </Project>

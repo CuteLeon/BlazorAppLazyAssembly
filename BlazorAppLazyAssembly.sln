@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAppLazyAssembly", "Bl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LazyRazorProject", "LazyRazorProject\LazyRazorProject.csproj", "{06318EA6-7C65-4F12-AFB7-B84997C6871F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LazyRazorProject2", "LazyRazorProject2\LazyRazorProject2.csproj", "{7B1F2B5F-AFDB-41BC-9345-5AD8C55F9163}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{06318EA6-7C65-4F12-AFB7-B84997C6871F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06318EA6-7C65-4F12-AFB7-B84997C6871F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06318EA6-7C65-4F12-AFB7-B84997C6871F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B1F2B5F-AFDB-41BC-9345-5AD8C55F9163}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B1F2B5F-AFDB-41BC-9345-5AD8C55F9163}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B1F2B5F-AFDB-41BC-9345-5AD8C55F9163}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B1F2B5F-AFDB-41BC-9345-5AD8C55F9163}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

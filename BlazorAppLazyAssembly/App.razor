@@ -28,7 +28,8 @@
             {
                 var assemblies = await this.AssemblyLoader.LoadAssembliesAsync(new[]
                 {
-                    "LazyRazorProject.dll"
+                    "LazyRazorProject.dll",
+                    "LazyRazorProject2.dll"
                 });
                 this.lazyLoadedAssemblies.AddRange(assemblies);
             }
