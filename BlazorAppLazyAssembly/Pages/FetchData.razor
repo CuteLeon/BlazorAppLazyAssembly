@@ -1,11 +1,13 @@
 ﻿@page "/fetchdata"
+@using System.Reflection
 @inject HttpClient Http
+@inject ILogger<FetchData> Logger
 
 <h1>Weather forecast</h1>
 
 <LazyRazorProject.Component1></LazyRazorProject.Component1>
 
-<LazyRazorProject2.Component2></LazyRazorProject2.Component2>
+<DynamicComponent Type=@component2Type></DynamicComponent>
 
 @if (forecasts == null)
 {
@@ -38,6 +40,7 @@ else
 
 @code {
     private WeatherForecast[]? forecasts;
+    private Type component2Type;
 
     protected override async Task OnInitializedAsync()
     {
@@ -53,5 +56,15 @@ else
         public string? Summary { get; set; }
 
         public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    }
+
+    protected override void OnInitialized()
+    {
+        var assembly = Assembly.Load(new AssemblyName("LazyRazorProject2"));
+        this.Logger.LogWarning(assembly.GetName().Name);
+        component2Type = assembly.GetType("LazyRazorProject2.Component2");
+        this.Logger.LogWarning(component2Type.FullName);
+
+        base.OnInitialized();
     }
 }

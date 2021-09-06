@@ -12,7 +12,6 @@
 
     <ItemGroup>
         <BlazorWebAssemblyLazyLoad Include="LazyRazorProject.dll" />
-        <BlazorWebAssemblyLazyLoad Include="LazyRazorProject2.dll" />
     </ItemGroup>
 
     <ItemGroup>
