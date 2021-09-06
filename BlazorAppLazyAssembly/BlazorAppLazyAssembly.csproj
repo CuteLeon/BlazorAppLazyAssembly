@@ -13,4 +13,8 @@
     <ItemGroup>
         <BlazorWebAssemblyLazyLoad Include="LazyRazorProject.dll" />
     </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\LazyRazorProject\LazyRazorProject.csproj" />
+    </ItemGroup>
 </Project>
